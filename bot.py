@@ -10,7 +10,7 @@ from telegram.ext import (
 )
 
 # إعدادات
-BASE_DIR = "/users/mohammedemad/phone_price_bot"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # ✅ مسار ديناميكي
 PRICES_PATH = os.path.join(BASE_DIR, "prices.xlsx")
 URLS_PATH = os.path.join(BASE_DIR, "phones_urls.json")
 TOKEN = os.getenv("TOKEN")
