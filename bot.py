@@ -9,14 +9,38 @@ from telegram.ext import (
     ConversationHandler, filters, ContextTypes
 )
 
-# إعدادات
+# ======= إعدادات =======
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # ✅ مسار ديناميكي
 PRICES_PATH = os.path.join(BASE_DIR, "prices.xlsx")
 URLS_PATH = os.path.join(BASE_DIR, "phones_urls.json")
+USERS_FILE = os.path.join(BASE_DIR, "users.json")
 TOKEN = os.getenv("TOKEN")
 CHANNEL_USERNAME = "@mitech808"
+ADMIN_IDS = [193646746]  # <-- استبدل بمعرف المشرف الخاص بك
 
-# تحميل بيانات الأسعار
+# ======= دوال إدارة المستخدمين =======
+def load_users():
+    if os.path.exists(USERS_FILE):
+        with open(USERS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_users(users):
+    with open(USERS_FILE, "w", encoding="utf-8") as f:
+        json.dump(users, f, indent=2, ensure_ascii=False)
+
+def store_user(user):
+    users = load_users()
+    user_id = str(user.id)
+    if user_id not in users:
+        users[user_id] = {
+            "name": user.full_name,
+            "username": user.username,
+            "id": user.id
+        }
+        save_users(users)
+
+# ======= تحميل بيانات الأسعار =======
 def load_excel_prices(path=PRICES_PATH):
     df = pd.read_excel(path)
     df = df.dropna(subset=["الاسم (name)", "السعر (price)", "الذاكره (Rom)"])
@@ -28,7 +52,7 @@ def load_excel_prices(path=PRICES_PATH):
         phone_map.setdefault(name, []).append({"price": price, "rom": rom})
     return phone_map
 
-# تحميل روابط المواصفات
+# ======= تحميل روابط المواصفات =======
 def load_phone_urls(filepath=URLS_PATH):
     with open(filepath, encoding="utf-8") as f:
         data = json.load(f)
@@ -41,11 +65,11 @@ def load_phone_urls(filepath=URLS_PATH):
                 url_map[name.strip()] = url
     return url_map
 
-# البيانات
+# ======= البيانات =======
 price_data = load_excel_prices()
 phone_urls = load_phone_urls()
 
-# مطابقة غامضة للروابط
+# ======= مطابقة غامضة للروابط =======
 def fuzzy_get_url(name):
     if name in phone_urls:
         return phone_urls[name]
@@ -54,7 +78,7 @@ def fuzzy_get_url(name):
         return phone_urls[matches[0][0]]
     return "https://t.me/mitech808"
 
-# رسالة ترحيب
+# ======= رسالة ترحيب =======
 WELCOME_MSG = (
     "👋 مرحبًا بك في بوت أسعار الموبايلات!\n\n"
     "📱 أرسل اسم الجهاز (مثال: Galaxy S25 Ultra)\n"
@@ -62,7 +86,7 @@ WELCOME_MSG = (
     "🔄 استخدم الأمر /compare لمقارنة جهازين."
 )
 
-# التحقق من الاشتراك
+# ======= التحقق من الاشتراك =======
 async def check_user_subscription(user_id, context):
     try:
         member = await context.bot.get_chat_member(chat_id=CHANNEL_USERNAME, user_id=user_id)
@@ -86,13 +110,15 @@ async def send_subscription_required(update: Update):
         reply_markup=keyboard
     )
 
-# مقارنة
+# ======= مقارنة =======
 COMPARE_FIRST, COMPARE_SECOND = range(2)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     if not await check_user_subscription(user_id, context):
         return await send_subscription_required(update)
+
+    store_user(update.effective_user)  # حفظ المستخدم
     await update.message.reply_text(WELCOME_MSG)
 
 async def compare_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -137,11 +163,13 @@ async def compare_cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("❌ تم إلغاء عملية المقارنة.")
     return ConversationHandler.END
 
-# الرسائل العامة
+# ======= الرسائل العامة =======
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     if not await check_user_subscription(user_id, context):
         return await send_subscription_required(update)
+
+    store_user(update.effective_user)  # حفظ المستخدم
 
     text = update.message.text.strip()
 
@@ -195,7 +223,27 @@ async def check_subscription_button(update: Update, context: ContextTypes.DEFAUL
     else:
         await query.answer("❌ لم يتم العثور على اشتراكك بعد. تأكد من الاشتراك ثم أعد المحاولة.", show_alert=True)
 
-# تشغيل البوت
+# ======= أمر المشرف /stats =======
+async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    if user_id not in ADMIN_IDS:
+        await update.message.reply_text("❌ هذا الأمر مخصص للمشرف فقط.")
+        return
+
+    users = load_users()
+    if not users:
+        await update.message.reply_text("❌ لا يوجد مستخدمون مسجلون بعد.")
+        return
+
+    msg = f"👥 عدد مستخدمي البوت: {len(users)}\n\n"
+    for user in users.values():
+        name = user['name']
+        username = f"@{user['username']}" if user['username'] else "—"
+        msg += f"🆔 {user['id']} | {name} | {username}\n"
+
+    await update.message.reply_text(msg)
+
+# ======= تشغيل البوت =======
 def main():
     app = Application.builder().token(TOKEN).build()
 
@@ -210,6 +258,7 @@ def main():
     )
 
     app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("stats", stats_command))  # <-- أمر المشرف
     app.add_handler(CallbackQueryHandler(check_subscription_button, pattern="^check_subscription$"))
     app.add_handler(compare_conv)
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
