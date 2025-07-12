@@ -1,6 +1,30 @@
 {
   "Samsung devices": [
     {
+      "name": "Galaxy Z Fold7",
+      "url": "https://www.gsmarena.com/samsung_galaxy_z_fold7-13826.php"
+    },
+    {
+      "name": "Galaxy Z Flip7",
+      "url": "https://www.gsmarena.com/samsung_galaxy_z_flip7-13712.php"
+    },
+    {
+      "name": "Galaxy Z Flip7 FE",
+      "url": "https://www.gsmarena.com/samsung_galaxy_z_flip7_fe_5g-13844.php"
+    },
+    {
+      "name": "Galaxy Watch8 Classic",
+      "url": "https://www.gsmarena.com/samsung_galaxy_watch8_classic-13998.php"
+    },
+    {
+      "name": "Galaxy Watch8",
+      "url": "https://www.gsmarena.com/samsung_galaxy_watch8-13997.php"
+    },
+    {
+      "name": "Galaxy M36",
+      "url": "https://www.gsmarena.com/samsung_galaxy_m36_5g-13967.php"
+    },
+    {
       "name": "Galaxy S25 Edge",
       "url": "https://www.gsmarena.com/samsung_galaxy_s25_edge-13506.php"
     },
@@ -175,30 +199,6 @@
     {
       "name": "Galaxy F15",
       "url": "https://www.gsmarena.com/samsung_galaxy_f15-12831.php"
-    },
-    {
-      "name": "Galaxy S24 Ultra",
-      "url": "https://www.gsmarena.com/samsung_galaxy_s24_ultra-12771.php"
-    },
-    {
-      "name": "Galaxy S24+",
-      "url": "https://www.gsmarena.com/samsung_galaxy_s24+-12772.php"
-    },
-    {
-      "name": "Galaxy S24",
-      "url": "https://www.gsmarena.com/samsung_galaxy_s24-12773.php"
-    },
-    {
-      "name": "Galaxy XCover7",
-      "url": "https://www.gsmarena.com/samsung_galaxy_xcover7-12784.php"
-    },
-    {
-      "name": "Galaxy Tab Active5",
-      "url": "https://www.gsmarena.com/samsung_galaxy_tab_active5-12785.php"
-    },
-    {
-      "name": "Galaxy A25",
-      "url": "https://www.gsmarena.com/samsung_galaxy_a25-12555.php"
     }
   ],
   "Realme devices": [
@@ -405,6 +405,26 @@
   ],
   "Tecno devices": [
     {
+      "name": "Pova 7 Pro",
+      "url": "https://www.gsmarena.com/tecno_pova_7_pro_5g-13990.php"
+    },
+    {
+      "name": "Pova 7",
+      "url": "https://www.gsmarena.com/tecno_pova_7_5g-13991.php"
+    },
+    {
+      "name": "Spark 40 Pro+",
+      "url": "https://www.gsmarena.com/tecno_spark_40_pro+-13986.php"
+    },
+    {
+      "name": "Spark 40 Pro",
+      "url": "https://www.gsmarena.com/tecno_spark_40_pro-13985.php"
+    },
+    {
+      "name": "Spark 40",
+      "url": "https://www.gsmarena.com/tecno_spark_40_4g-13984.php"
+    },
+    {
       "name": "Pova 7 Ultra",
       "url": "https://www.gsmarena.com/tecno_pova_7_ultra_5g-13976.php"
     },
@@ -583,29 +603,25 @@
     {
       "name": "Camon 20 Premier",
       "url": "https://www.gsmarena.com/tecno_camon_20_premier-12256.php"
-    },
-    {
-      "name": "Camon 20 Pro 5G",
-      "url": "https://www.gsmarena.com/tecno_camon_20_pro_5g-12255.php"
-    },
-    {
-      "name": "Camon 20 Pro",
-      "url": "https://www.gsmarena.com/tecno_camon_20_pro-12254.php"
-    },
-    {
-      "name": "Camon 20",
-      "url": "https://www.gsmarena.com/tecno_camon_20-12253.php"
-    },
-    {
-      "name": "Pop 7",
-      "url": "https://www.gsmarena.com/tecno_pop_7-12202.php"
-    },
-    {
-      "name": "Spark 10 5G",
-      "url": "https://www.gsmarena.com/tecno_spark_10_5g-12179.php"
     }
   ],
   "Infinix devices": [
+    {
+      "name": "Hot 60",
+      "url": "https://www.gsmarena.com/infinix_hot_60_5g-14006.php"
+    },
+    {
+      "name": "Hot 60 Pro+",
+      "url": "https://www.gsmarena.com/infinix_hot_60_pro+-14002.php"
+    },
+    {
+      "name": "Hot 60 Pro",
+      "url": "https://www.gsmarena.com/infinix_hot_60_pro-14003.php"
+    },
+    {
+      "name": "Hot 60i",
+      "url": "https://www.gsmarena.com/infinix_hot_60i-13983.php"
+    },
     {
       "name": "Smart 10 HD",
       "url": "https://www.gsmarena.com/infinix_smart_10_hd-13954.php"
@@ -789,25 +805,29 @@
     {
       "name": "Note 30",
       "url": "https://www.gsmarena.com/infinix_note_30-12288.php"
-    },
-    {
-      "name": "Note 30 5G",
-      "url": "https://www.gsmarena.com/infinix_note_30_5g-12272.php"
-    },
-    {
-      "name": "Note 30i",
-      "url": "https://www.gsmarena.com/infinix_note_30i-12274.php"
-    },
-    {
-      "name": "Smart 7 HD",
-      "url": "https://www.gsmarena.com/infinix_smart_7_hd-12243.php"
-    },
-    {
-      "name": "Hot 30i",
-      "url": "https://www.gsmarena.com/infinix_hot_30i-12216.php"
     }
   ],
   "Xiaomi devices": [
+    {
+      "name": "Redmi K80 Ultra",
+      "url": "https://www.gsmarena.com/xiaomi_redmi_k80_ultra_5g-13965.php"
+    },
+    {
+      "name": "Mix Flip 2",
+      "url": "https://www.gsmarena.com/xiaomi_mix_flip_2_5g-13980.php"
+    },
+    {
+      "name": "Watch S4 41mm",
+      "url": "https://www.gsmarena.com/xiaomi_watch_s4_41mm-13981.php"
+    },
+    {
+      "name": "Pad 7S Pro 12.5",
+      "url": "https://www.gsmarena.com/xiaomi_pad_7s_pro_12_5-13968.php"
+    },
+    {
+      "name": "Redmi K Pad",
+      "url": "https://www.gsmarena.com/xiaomi_redmi_k_pad-13960.php"
+    },
     {
       "name": "Poco F7",
       "url": "https://www.gsmarena.com/xiaomi_poco_f7_5g-13951.php"
@@ -987,29 +1007,13 @@
     {
       "name": "Redmi Note 14 5G (China)",
       "url": "https://www.gsmarena.com/xiaomi_redmi_note_14_(china)-13366.php"
-    },
-    {
-      "name": "Redmi 14R",
-      "url": "https://www.gsmarena.com/xiaomi_redmi_14r-13338.php"
-    },
-    {
-      "name": "Redmi 14C",
-      "url": "https://www.gsmarena.com/xiaomi_redmi_14c-13291.php"
-    },
-    {
-      "name": "Redmi Watch 5 Lite",
-      "url": "https://www.gsmarena.com/xiaomi_redmi_watch_5_lite-13361.php"
-    },
-    {
-      "name": "Redmi Watch 5 Active",
-      "url": "https://www.gsmarena.com/xiaomi_redmi_watch_5_active-13286.php"
-    },
-    {
-      "name": "Poco Pad 5G",
-      "url": "https://www.gsmarena.com/xiaomi_poco_pad_5g-13279.php"
     }
   ],
   "Honor devices": [
+    {
+      "name": "Magic V5",
+      "url": "https://www.gsmarena.com/honor_magic_v5-13982.php"
+    },
     {
       "name": "X6c",
       "url": "https://www.gsmarena.com/honor_x6c-13938.php"
@@ -1111,7 +1115,7 @@
       "url": "https://www.gsmarena.com/honor_x9c_smart-13536.php"
     },
     {
-      "name": "Play9C",
+      "name": "Play9C (China)",
       "url": "https://www.gsmarena.com/honor_play9c-13493.php"
     },
     {
@@ -1205,10 +1209,6 @@
     {
       "name": "200 Pro",
       "url": "https://www.gsmarena.com/honor_200_pro-13049.php"
-    },
-    {
-      "name": "200",
-      "url": "https://www.gsmarena.com/honor_200-13050.php"
     }
   ],
   "Blackview Tab devices": [
@@ -1415,6 +1415,10 @@
   ],
   "Huawei devices": [
     {
+      "name": "MatePad 11.5 (2025)",
+      "url": "https://www.gsmarena.com/huawei_matepad_11_5_(2025)-14008.php"
+    },
+    {
       "name": "Pura 80 Ultra",
       "url": "https://www.gsmarena.com/huawei_pura_80_ultra_5g-13944.php"
     },
@@ -1609,10 +1613,6 @@
     {
       "name": "nova 12 Lite",
       "url": "https://www.gsmarena.com/huawei_nova_12_lite-12762.php"
-    },
-    {
-      "name": "Enjoy 70",
-      "url": "https://www.gsmarena.com/huawei_enjoy_70-12720.php"
     }
   ],
   "apple devices": [
